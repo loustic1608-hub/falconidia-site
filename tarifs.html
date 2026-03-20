@@ -1,7 +1,372 @@
-[build]
-  publish = "."
+<!DOCTYPE html>
 
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#75d1ff",
+              "on-surface": "#d8e2ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "background": "#001233",
+              "on-tertiary-container": "#004057",
+              "surface-tint": "#4cd6fb",
+              "error-container": "#93000a",
+              "primary-container": "#00b4d8",
+              "surface-dim": "#001233",
+              "on-tertiary": "#003548",
+              "tertiary-fixed-dim": "#75d1ff",
+              "on-tertiary-fixed-variant": "#004d67",
+              "on-secondary-fixed-variant": "#5900c6",
+              "secondary-fixed-dim": "#d2bbff",
+              "surface-bright": "#28395b",
+              "primary": "#4cd6fb",
+              "surface-variant": "#243456",
+              "on-primary-fixed": "#001f27",
+              "primary-fixed-dim": "#4cd6fb",
+              "outline-variant": "#3d494d",
+              "secondary": "#d2bbff",
+              "on-background": "#d8e2ff",
+              "surface-container": "#0d1f40",
+              "on-primary": "#003642",
+              "on-primary-container": "#00414f",
+              "secondary-container": "#6800e4",
+              "outline": "#869398",
+              "surface-container-highest": "#243456",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-secondary-fixed": "#25005a",
+              "primary-fixed": "#b3ebff",
+              "on-secondary": "#3e008e",
+              "inverse-surface": "#d8e2ff",
+              "surface-container-high": "#18294b",
+              "on-tertiary-fixed": "#001e2b",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#081a3b",
+              "surface": "#001233",
+              "error": "#ffb4ab",
+              "on-secondary-container": "#d2bbff",
+              "on-surface-variant": "#bcc9ce",
+              "inverse-on-surface": "#1f3051",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-container-lowest": "#000d29",
+              "tertiary-container": "#36b1e4",
+              "secondary-fixed": "#eaddff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .signature-gradient {
+        background: linear-gradient(135deg, #00B4D8 0%, #7B2FF7 100%);
+      }
+      .ghost-border {
+        outline: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .ia-highlight {
+        color: #00B4D8;
+      }
+    </style>
+
+<style>
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 13, 41, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .mobile-menu-overlay.active { display: flex; }
+    .mobile-menu-overlay a {
+        color: #d8e2ff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s;
+    }
+    .mobile-menu-overlay a:hover,
+    .mobile-menu-overlay a.active-link { color: #00B4D8; }
+    .mobile-menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.25rem;
+    }
+    @media (max-width: 768px) {
+        .hamburger-btn { display: flex; align-items: center; }
+        .nav-contact-btn { font-size: 0.75rem; padding: 0.4rem 1rem !important; }
+        /* Fix hero text sizes for mobile */
+        .mobile-hero-fix { font-size: 2.5rem !important; }
+        /* Fix padding on mobile */
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        /* Fix footer grid on mobile */
+        footer .grid { gap: 2rem !important; padding: 3rem 1.5rem !important; }
+    }
+    @media (max-width: 480px) {
+        .mobile-hero-fix { font-size: 2rem !important; }
+    }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary/30">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">&times;</button>
+    <a href="index.html">Accueil</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="fonctionnalites.html">Fonctionnalités</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white" style="margin-top:1rem">Contact</a>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-white">Falconid<span class="ia-highlight">IA</span></div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-white transition-colors" href="index.html">Accueil</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="a-propos.html">À propos</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="services.html">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="fonctionnalites.html">Fonctionnalités</a>
+<a class="text-[#00B4D8] font-semibold border-b-2 border-[#00B4D8] pb-1" href="tarifs.html">Tarifs</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="blog.html">Blog</a>
+</div>
+<button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.add('active')"><span class="material-symbols-outlined">menu</span></button>
+<a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white transition-transform scale-95 active:scale-90 hover:shadow-[0_0_20px_rgba(123,47,247,0.3)] inline-block">Contact</a>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6">
+<!-- Hero Section -->
+<header class="max-w-4xl mx-auto text-center mb-24">
+<h1 class="text-[3.5rem] font-bold leading-tight tracking-tighter mb-6">
+                Un investissement minime, une rentabilité immédiate.
+            </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl mx-auto">
+                L'investissement dans Falconid<span class="ia-highlight font-semibold">IA</span> est minime par rapport au coût d'un commercial... 
+                Notre <span class="ia-highlight font-semibold">IA</span> ne dort jamais — elle travaille pour vous 24h/24 et 7j/7.
+            </p>
+</header>
+<!-- Pricing Grid -->
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+<!-- Plan 1: Starter -->
+<div class="bg-surface-container-low rounded-2xl p-8 ghost-border transition-all duration-300 hover:bg-surface-container-high group">
+<div class="mb-8">
+<h3 class="text-xl font-bold mb-2">Starter</h3>
+<p class="text-on-surface-variant text-sm">Pour découvrir la puissance de l'<span class="ia-highlight">IA</span>.</p>
+</div>
+<div class="mb-8">
+<span class="text-4xl font-black">Gratuit</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>50 conversations / mois</span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>Support par email</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-outline text-xl">block</span>
+<span class="line-through">Analyses avancées</span>
+</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl border-1.5 border-primary text-primary font-bold hover:bg-primary/5 transition-all text-sm">
+                    Commencer gratuitement
+                </button>
+</div>
+<!-- Plan 2: Pro (Featured) -->
+<div class="relative bg-surface-container rounded-2xl p-10 border-2 border-primary shadow-2xl shadow-primary/10 transition-all duration-300 transform md:scale-110 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 signature-gradient px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">
+                    Plus Populaire
+                </div>
+<div class="mb-8">
+<h3 class="text-2xl font-bold mb-2">Pro</h3>
+<p class="text-on-surface-variant text-sm">L'accélération commerciale par Falconid<span class="ia-highlight">IA</span>.</p>
+</div>
+<div class="mb-8 flex items-baseline gap-1">
+<span class="text-5xl font-black">89€</span>
+<span class="text-on-surface-variant font-medium">/mois</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Conversations illimitées</span>
+</li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Dashboard analytique temps réel</span>
+</li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Intégration CRM native</span>
+</li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Support prioritaire 24h/7j</span>
+</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl signature-gradient text-white font-bold hover:shadow-[0_0_30px_rgba(0,180,216,0.4)] transition-all text-base">
+                    Activer le Pack Pro
+                </button>
+</div>
+<!-- Plan 3: Enterprise -->
+<div class="bg-surface-container-low rounded-2xl p-8 ghost-border transition-all duration-300 hover:bg-surface-container-high group">
+<div class="mb-8">
+<h3 class="text-xl font-bold mb-2">Enterprise</h3>
+<p class="text-on-surface-variant text-sm">Solution sur-mesure pour grands comptes.</p>
+</div>
+<div class="mb-8 flex items-baseline gap-1">
+<span class="text-4xl font-black">249€</span>
+<span class="text-on-surface-variant font-medium">/mois</span>
+</div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>Multi-instances <span class="ia-highlight">IA</span></span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>API Dédiée &amp; Webhooks</span>
+</li>
+<li class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span>Account Manager dédié</span>
+</li>
+</ul>
+<button class="w-full py-4 px-6 rounded-xl border-1.5 border-primary text-primary font-bold hover:bg-primary/5 transition-all text-sm">
+                    Contacter l'équipe Sales
+                </button>
+</div>
+</div>
+<!-- Metric Section (Asymmetric) -->
+<section class="max-w-7xl mx-auto mt-40">
+<div class="bg-surface-container-high rounded-2xl p-12 flex flex-col md:flex-row gap-12 items-center ghost-border overflow-hidden relative">
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="flex-1 z-10">
+<h2 class="text-3xl font-bold mb-6">Le retour sur investissement est immédiat.</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        En automatisant vos premiers contacts, Falconid<span class="ia-highlight font-semibold">IA</span> réduit votre coût d'acquisition client de <span class="text-white font-bold">65%</span> dès le premier mois.
+                    </p>
+</div>
+<div class="flex-shrink-0 grid grid-cols-2 gap-4 z-10">
+<div class="bg-surface-container-highest p-6 rounded-xl ghost-border -mt-10">
+<div class="text-primary font-black text-3xl mb-1">+240%</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Productivité</div>
+</div>
+<div class="bg-surface-container-highest p-6 rounded-xl ghost-border">
+<div class="text-secondary font-black text-3xl mb-1">-40h</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Temps/Semaine</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#060F1E] w-full rounded-t-[24px] mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-black text-white mb-4">Falconid<span class="ia-highlight">IA</span></div>
+<p class="text-slate-400 opacity-80 mb-6">Voir plus loin. Décider plus vite. Notre <span class="ia-highlight">IA</span> travaille pour vous 24h/24, 7j/7.</p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-all" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-all" href="#"><span class="material-symbols-outlined">hub</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Produit</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="fonctionnalites.html">Fonctionnalités</a></li>
+<li><a class="text-[#00B4D8] hover:translate-x-1 transition-all block" href="tarifs.html">Tarifs</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">Sécurité</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Ressources</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="blog.html">Blog</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">Documentation</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">Webinaires</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Entreprise</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">LinkedIn</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">Instagram</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">Facebook</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all block" href="#">YouTube</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/5 py-8 text-center text-xs text-slate-500">
+            © 2024 FalconidIA. Tous droits réservés.
+        </div>
+</footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/tarifs.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('header h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        if (data.plans) {
+            const planCards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-3 > div');
+            data.plans.forEach((plan, i) => {
+                if (planCards[i]) {
+                    const h3 = planCards[i].querySelector('h3');
+                    const priceEl = planCards[i].querySelector('.text-4xl, .text-5xl');
+                    const descP = planCards[i].querySelector('p');
+                    if (h3 && plan.name) h3.textContent = plan.name;
+                    if (priceEl && plan.price) priceEl.textContent = plan.price;
+                    if (descP && plan.description) {
+                        descP.innerHTML = plan.description.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+                    }
+                }
+            });
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
+</body></html>

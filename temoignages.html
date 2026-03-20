@@ -1,65 +1,379 @@
-# FalconidIA - Site Web
+<!DOCTYPE html>
 
-## 🚀 Déploiement rapide
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#75d1ff",
+              "on-surface": "#d8e2ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "background": "#001233",
+              "on-tertiary-container": "#004057",
+              "surface-tint": "#4cd6fb",
+              "error-container": "#93000a",
+              "primary-container": "#00b4d8",
+              "surface-dim": "#001233",
+              "on-tertiary": "#003548",
+              "tertiary-fixed-dim": "#75d1ff",
+              "on-tertiary-fixed-variant": "#004d67",
+              "on-secondary-fixed-variant": "#5900c6",
+              "secondary-fixed-dim": "#d2bbff",
+              "surface-bright": "#28395b",
+              "primary": "#4cd6fb",
+              "surface-variant": "#243456",
+              "on-primary-fixed": "#001f27",
+              "primary-fixed-dim": "#4cd6fb",
+              "outline-variant": "#3d494d",
+              "secondary": "#d2bbff",
+              "on-background": "#d8e2ff",
+              "surface-container": "#0d1f40",
+              "on-primary": "#003642",
+              "on-primary-container": "#00414f",
+              "secondary-container": "#6800e4",
+              "outline": "#869398",
+              "surface-container-highest": "#243456",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-secondary-fixed": "#25005a",
+              "primary-fixed": "#b3ebff",
+              "on-secondary": "#3e008e",
+              "inverse-surface": "#d8e2ff",
+              "surface-container-high": "#18294b",
+              "on-tertiary-fixed": "#001e2b",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#081a3b",
+              "surface": "#001233",
+              "error": "#ffb4ab",
+              "on-secondary-container": "#d2bbff",
+              "on-surface-variant": "#bcc9ce",
+              "inverse-on-surface": "#1f3051",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-container-lowest": "#000d29",
+              "tertiary-container": "#36b1e4",
+              "secondary-fixed": "#eaddff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .signature-gradient {
+        background: linear-gradient(135deg, #00B4D8 0%, #7B2FF7 100%);
+      }
+      .ghost-border {
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .ia-highlight {
+        color: #00B4D8;
+      }
+      .glass-card {
+        background: rgba(13, 31, 64, 0.6);
+        backdrop-filter: blur(20px);
+      }
+    </style>
 
-### Étape 1 : Créer le repo GitHub
-1. Va sur https://github.com/new
-2. Nom du repo : `falconidia-site`
-3. Laisse en **Public**
-4. Clique **Create repository**
-5. Upload tous les fichiers de ce dossier dans le repo (bouton "uploading an existing file")
+<style>
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 13, 41, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .mobile-menu-overlay.active { display: flex; }
+    .mobile-menu-overlay a {
+        color: #d8e2ff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s;
+    }
+    .mobile-menu-overlay a:hover,
+    .mobile-menu-overlay a.active-link { color: #00B4D8; }
+    .mobile-menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.25rem;
+    }
+    @media (max-width: 768px) {
+        .hamburger-btn { display: flex; align-items: center; }
+        .nav-contact-btn { font-size: 0.75rem; padding: 0.4rem 1rem !important; }
+        /* Fix hero text sizes for mobile */
+        .mobile-hero-fix { font-size: 2.5rem !important; }
+        /* Fix padding on mobile */
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        /* Fix footer grid on mobile */
+        footer .grid { gap: 2rem !important; padding: 3rem 1.5rem !important; }
+    }
+    @media (max-width: 480px) {
+        .mobile-hero-fix { font-size: 2rem !important; }
+    }
+</style>
+</head>
+<body class="bg-background font-body text-on-background antialiased overflow-x-hidden">
 
-### Étape 2 : Connecter à Netlify
-1. Va sur https://app.netlify.com
-2. **Add new site → Import an existing project**
-3. Connecte ton compte GitHub
-4. Sélectionne le repo `falconidia-site`
-5. Clique **Deploy site**
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">&times;</button>
+    <a href="index.html">Accueil</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="fonctionnalites.html">Fonctionnalités</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white" style="margin-top:1rem">Contact</a>
+</div>
 
-### Étape 3 : Activer l'authentification GitHub pour le CMS
-1. Dans Netlify : **Site settings → Build & deploy → Environment**
-2. Va sur GitHub : **Settings → Developer settings → OAuth Apps → New OAuth App**
-   - Application name: `FalconidIA CMS`
-   - Homepage URL: `https://ton-site.netlify.app`
-   - Authorization callback URL: `https://api.netlify.com/auth/done`
-3. Note le **Client ID** et **Client Secret**
-4. Dans Netlify : **Site settings → Access & identity → OAuth → Install provider**
-   - Provider: GitHub
-   - Client ID et Client Secret copiés de l'étape précédente
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-white">
+                Falconid<span class="ia-highlight">IA</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-300 hover:text-white transition-colors" href="index.html">Accueil</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="a-propos.html">À propos</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="services.html">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="fonctionnalites.html">Fonctionnalités</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="tarifs.html">Tarifs</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="blog.html">Blog</a>
+</div>
+<button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.add('active')"><span class="material-symbols-outlined">menu</span></button>
+<a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white transition-transform scale-95 active:scale-90 hover:shadow-[0_0_20px_rgba(123,47,247,0.3)] inline-block">Contact</a>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="relative px-8 mb-24 max-w-7xl mx-auto">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute top-48 -left-24 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 text-center md:text-left">
+<span class="label-md tracking-widest text-primary font-bold uppercase block mb-4">Témoignages &amp; Succès</span>
+<h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-tight max-w-4xl">
+                    Ils ont arrêté de prospecter au hasard.
+                </h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                    Votre réussite est la seule preuve de notre efficacité. Découvrez comment l'intelligence artificielle transforme les cycles de vente de nos partenaires.
+                </p>
+</div>
+</section>
+<!-- Stats Grid (Impact) -->
+<section class="px-8 mb-32 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="glass-card ghost-border p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">schedule</span>
+</div>
+<div class="text-5xl font-black text-primary mb-2">-65%</div>
+<div class="text-lg font-semibold text-white mb-1">Temps de prospection</div>
+<p class="text-on-surface-variant text-sm">Réduction drastique du temps passé sur des leads non-qualifiés grâce à notre moteur d'<span class="ia-highlight">IA</span>.</p>
+</div>
+<!-- Stat Card 2 -->
+<div class="glass-card ghost-border p-8 rounded-xl relative overflow-hidden group border-b-2 border-primary/30">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">rocket_launch</span>
+</div>
+<div class="text-5xl font-black text-primary mb-2">+240%</div>
+<div class="text-lg font-semibold text-white mb-1">Leads générés</div>
+<p class="text-on-surface-variant text-sm">Augmentation moyenne du volume de leads qualifiés dès le premier trimestre d'utilisation.</p>
+</div>
+<!-- Stat Card 3 -->
+<div class="glass-card ghost-border p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">trending_up</span>
+</div>
+<div class="text-5xl font-black text-primary mb-2">+42%</div>
+<div class="text-lg font-semibold text-white mb-1">Taux de conversion</div>
+<p class="text-on-surface-variant text-sm">Optimisation du closing grâce à une meilleure segmentation et un ciblage prédictif haute précision.</p>
+</div>
+</div>
+</section>
+<!-- Main Testimonial Section -->
+<section class="px-8 mb-32 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Featured Testimonial -->
+<div class="lg:col-span-7">
+<div class="glass-card ghost-border p-12 rounded-xl relative">
+<span class="material-symbols-outlined text-primary text-6xl absolute -top-8 left-8 opacity-50" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="text-2xl md:text-3xl font-medium text-white leading-snug mb-8 pt-4">
+                            "L'implémentation de Falconid<span class="ia-highlight">IA</span> a radicalement changé notre approche commerciale. Nous ne courons plus après les leads, nous traitons des opportunités concrètes. Le gain de productivité pour mon équipe est tout simplement phénoménal."
+                        </blockquote>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden ghost-border">
+<img alt="Directeur Commercial Portrait" class="w-full h-full object-cover" data-alt="Portrait of a professional sales director in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAbmgpCNuY4OKNMtbtRbWaMEUnV5vZgttLZz6ngRtR844wraYgvq2PR34BnGQ3VXUpMRBNU0UErqZSpXuLOMKmBhhLts_7fSYrEU6WTu4L1PcGD-wH2bcByn9Re8JYg_RQvzOKIyN8qUDPiL--wD9qkw1MKRX9PgIKYdsRAOXCZ4MA-kpZi84LxRa77nzMpE66z_VwoHhJbvPcmFJfzFeZ863_OLYlYus9FFTE0dE6WE-TC56O2oR-d88TY27NBLCq4hk1GFBtzMQ"/>
+</div>
+<div>
+<div class="font-bold text-white text-lg">Jean-Baptiste Morel</div>
+<div class="text-primary text-sm font-semibold tracking-wider">Directeur Commercial, NexGen Tech</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Testimonials (Stacked) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="glass-card ghost-border p-8 rounded-xl">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden ghost-border">
+<img alt="CEO Portrait" class="w-full h-full object-cover" data-alt="Professional business woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmcBTypkZ3blbv4s82C1C6xItZe0S7cqxyUpxJssAWJtpERwy-7Z3KzV_OCXhvWA2Iv1giylu6HjInTgFFMRXlEy58WDxBwu5XXkCORMQw4Mc3YlcSj5B9rn146zQ7ZVrfJu6tOwodjKmh09N4j3NHwCcCF8Ndx5ln3lpS4MjOpdaflObxa89-_5mf0b9_9UgGEOeB4XcZuv1j-Hhzt_ZwUSYST_MttmQESFTEYKr3_xwrbtPzl1Z0vY8gy7bh4Sfvlb1xdzwiYjE"/>
+</div>
+<div>
+<div class="font-bold text-white">Sophie Vallet</div>
+<div class="text-on-surface-variant text-xs">CEO, CloudScale Solutions</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic mb-4">"Une précision chirurgicale. Les algorithmes de Falconid<span class="ia-highlight">IA</span> détectent des signaux d'achat que nos meilleurs experts ne voyaient pas."</p>
+<div class="text-primary font-bold">+150k€ ARR en 2 mois</div>
+</div>
+<div class="glass-card ghost-border p-8 rounded-xl">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden ghost-border">
+<img alt="Strategy Director Portrait" class="w-full h-full object-cover" data-alt="Portrait of a professional woman in a business suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE_S18pE8Q4vB5k4p9X_R1m-0GvL-QJ4q_W6n7t5v4w3z2y1x0_v9u8t7s6r5q4p3o2n1m0l9k8j7i6h5g4f3e2d1c0b9a8_7Z3KzV_OCXhvWA2Iv1giylu6HjInTgFFMRXlEy58WDxBwu5XXkCORMQw4Mc3YlcSj5B9rn146zQ7ZVrfJu6tOwodjKmh09N4j3NHwCcCF8Ndx5ln3lpS4MjOpdaflObxa89-_5mf0b9_9UgGEOeB4XcZuv1j-Hhzt_ZwUSYST_MttmQESFTEYKr3_xwrbtPzl1Z0vY8gy7bh4Sfvlb1xdzwiYjE"/>
+</div>
+<div>
+<div class="font-bold text-white">Hélène Roussel</div>
+<div class="text-on-surface-variant text-xs">Directrice de la Stratégie, InnovaCorp</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic mb-4">"L'analyse prédictive a transformé notre approche du marché. Nous avons réduit notre cycle de vente de 30% en un seul semestre."</p>
+<div class="text-primary font-bold">Réduction de 30% du cycle de vente</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Logos -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-12">
+<h3 class="text-on-surface-variant text-sm font-bold tracking-[0.2em] uppercase">Ils nous font confiance</h3>
+</div>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all">
+<div class="h-8 md:h-12 w-32 bg-slate-400/20 rounded-md flex items-center justify-center font-black text-xl">L'ORÉAL</div>
+<div class="h-8 md:h-12 w-32 bg-slate-400/20 rounded-md flex items-center justify-center font-black text-xl">AIRBUS</div>
+<div class="h-8 md:h-12 w-32 bg-slate-400/20 rounded-md flex items-center justify-center font-black text-xl">THALES</div>
+<div class="h-8 md:h-12 w-32 bg-slate-400/20 rounded-md flex items-center justify-center font-black text-xl">SANOFI</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-8 py-32 max-w-5xl mx-auto">
+<div class="signature-gradient rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20">
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">Prêt à changer de dimension ?</h2>
+<p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-medium">
+                        Rejoignez les leaders qui utilisent déjà l'intelligence de Falconid<span class="text-white">IA</span> pour dominer leur marché.
+                    </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-8 py-4 rounded-full font-extrabold text-lg shadow-xl hover:scale-105 transition-transform">
+                            Démarrer mon essai gratuit
+                        </button>
+<button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-extrabold text-lg hover:bg-white/10 transition-colors">
+                            Voir une démo live
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#060F1E] w-full rounded-t-[24px] mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-black text-white mb-4">Falconid<span class="ia-highlight">IA</span></div>
+<p class="text-slate-400 mb-6">
+                    © 2024 FalconidIA. Voir plus loin. Décider plus vite. Notre IA travaille pour vous 24h/24, 7j/7.
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-base">Produit</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="fonctionnalites.html">Fonctionnalités</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="tarifs.html">Tarification</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">Intégrations</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-base">Ressources</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">Documentation</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="blog.html">Blog</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">Success Stories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-base">Entreprise</h4>
+<div class="flex flex-col gap-3 mb-6">
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">LinkedIn</a>
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">Instagram</a>
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">Facebook</a>
+<a class="text-slate-400 hover:text-[#4FC3F7] transition-transform hover:translate-x-1 inline-block" href="#">YouTube</a>
+</div>
+</div>
+</div>
+</footer>
 
-### Étape 4 : Inviter ta copine
-1. Ajoute-la comme **collaboratrice** sur le repo GitHub
-2. Elle peut maintenant aller sur `https://ton-site.netlify.app/admin/`
-3. Elle se connecte avec son compte GitHub
-4. Elle peut éditer tous les contenus visuellement !
-
-## 📁 Structure du projet
-```
-├── index.html              # Page d'accueil
-├── a-propos.html           # Page À propos / Équipe
-├── services.html           # Page Services
-├── fonctionnalites.html    # Page Fonctionnalités
-├── tarifs.html             # Page Tarifs
-├── blog.html               # Page Blog
-├── contact.html            # Page Contact
-├── temoignages.html        # Page Témoignages
-├── netlify.toml            # Config Netlify
-├── admin/
-│   ├── index.html          # Interface admin Decap CMS
-│   └── config.yml          # Configuration des champs éditables
-├── content/                # Données JSON (éditées via le CMS)
-│   ├── accueil.json
-│   ├── a-propos.json
-│   ├── services.json
-│   ├── tarifs.json
-│   ├── blog.json
-│   ├── contact.json
-│   └── temoignages.json
-└── images/                 # Images uploadées via le CMS
-```
-
-## ✏️ Éditer le site
-- Va sur `https://ton-site.netlify.app/admin/`
-- Connecte-toi avec GitHub
-- Modifie les textes, images, tarifs, témoignages...
-- Sauvegarde → le site se met à jour automatiquement
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/temoignages.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('section h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        // Featured testimonial
+        if (data.testimonials && data.testimonials[0]) {
+            const quote = document.querySelector('blockquote');
+            if (quote) {
+                quote.innerHTML = '"' + data.testimonials[0].quote.replace(/IA/g, '<span class="ia-highlight">IA</span>') + '"';
+            }
+            const name = document.querySelector('.flex.items-center.gap-4 .font-bold.text-white.text-lg');
+            if (name) name.textContent = data.testimonials[0].name;
+            const pos = document.querySelector('.text-primary.text-sm.font-semibold');
+            if (pos) pos.textContent = data.testimonials[0].position + ', ' + data.testimonials[0].company;
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
+</body></html>

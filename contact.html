@@ -86,8 +86,81 @@
         color: #00B4D8;
       }
     </style>
+
+<style>
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 13, 41, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .mobile-menu-overlay.active { display: flex; }
+    .mobile-menu-overlay a {
+        color: #d8e2ff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s;
+    }
+    .mobile-menu-overlay a:hover,
+    .mobile-menu-overlay a.active-link { color: #00B4D8; }
+    .mobile-menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.25rem;
+    }
+    @media (max-width: 768px) {
+        .hamburger-btn { display: flex; align-items: center; }
+        .nav-contact-btn { font-size: 0.75rem; padding: 0.4rem 1rem !important; }
+        /* Fix hero text sizes for mobile */
+        .mobile-hero-fix { font-size: 2.5rem !important; }
+        /* Fix padding on mobile */
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        /* Fix footer grid on mobile */
+        footer .grid { gap: 2rem !important; padding: 3rem 1.5rem !important; }
+    }
+    @media (max-width: 480px) {
+        .mobile-hero-fix { font-size: 2rem !important; }
+    }
+</style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary/30">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">&times;</button>
+    <a href="index.html">Accueil</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="fonctionnalites.html">Fonctionnalités</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white" style="margin-top:1rem">Contact</a>
+</div>
+
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
 <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
@@ -101,6 +174,7 @@
 <a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="blog.html" style="">Blog</a>
 </div>
 <div class="flex items-center gap-4">
+<button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.add('active')"><span class="material-symbols-outlined">menu</span></button>
 <button class="text-[#00B4D8] font-semibold border-b-2 border-[#00B4D8] pb-1 scale-95 active:scale-90 transition-transform" style="">Contact</button>
 </div>
 </div>
