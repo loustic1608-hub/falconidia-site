@@ -1,0 +1,26 @@
+{
+  "hero_title": "Un investissement minime, une rentabilité immédiate.",
+  "plans": [
+    {
+      "name": "Starter",
+      "price": "Gratuit",
+      "description": "Pour découvrir la puissance de l'IA.",
+      "featured": false,
+      "features": ["50 conversations / mois", "Support par email"]
+    },
+    {
+      "name": "Pro",
+      "price": "89€/mois",
+      "description": "L'accélération commerciale par FalconidIA.",
+      "featured": true,
+      "features": ["Conversations illimitées", "Dashboard analytique temps réel", "Intégration CRM native", "Support prioritaire 24h/7j"]
+    },
+    {
+      "name": "Enterprise",
+      "price": "249€/mois",
+      "description": "Solution sur-mesure pour grands comptes.",
+      "featured": false,
+      "features": ["Multi-instances IA", "API Dédiée & Webhooks", "Account Manager dédié"]
+    }
+  ]
+}

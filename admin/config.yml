@@ -1,0 +1,114 @@
+backend:
+  name: github
+  repo: OWNER/falconidia-site  # À REMPLACER avec ton username GitHub
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages du site"
+    files:
+      # ==================== ACCUEIL ====================
+      - name: "accueil"
+        label: "Page d'Accueil"
+        file: "content/accueil.json"
+        fields:
+          - { label: "Titre Hero", name: "hero_title", widget: "string", default: "L'IA qui transforme chaque contact en opportunité." }
+          - { label: "Sous-titre Hero", name: "hero_subtitle", widget: "text", default: "Arrêtez de prospecter au hasard. Commencez à viser juste." }
+          - { label: "Bouton principal", name: "hero_cta", widget: "string", default: "Demander une démo" }
+          - { label: "Stat 1 - Chiffre", name: "stat1_number", widget: "string", default: "98%" }
+          - { label: "Stat 1 - Label", name: "stat1_label", widget: "string", default: "PRÉCISION DES LEADS" }
+          - { label: "Stat 2 - Chiffre", name: "stat2_number", widget: "string", default: "3×" }
+          - { label: "Stat 2 - Label", name: "stat2_label", widget: "string", default: "PLUS DE RENDEZ-VOUS" }
+          - { label: "Stat 3 - Chiffre", name: "stat3_number", widget: "string", default: "50k+" }
+          - { label: "Stat 3 - Label", name: "stat3_label", widget: "string", default: "ENTREPRISES ADHÉRENTES" }
+          - { label: "Stat 4 - Chiffre", name: "stat4_number", widget: "string", default: "24/7" }
+          - { label: "Stat 4 - Label", name: "stat4_label", widget: "string", default: "DISPONIBLE EN CONTINU" }
+          - { label: "Texte Brand Story", name: "brand_story", widget: "text", default: "FalconidIA, c'est une idée simple..." }
+
+      # ==================== À PROPOS ====================
+      - name: "a-propos"
+        label: "Page À Propos"
+        file: "content/a-propos.json"
+        fields:
+          - { label: "Titre", name: "hero_title", widget: "string", default: "Un trio qui bouscule les codes." }
+          - { label: "Description", name: "hero_description", widget: "text" }
+          - label: "Membres de l'équipe"
+            name: "team"
+            widget: "list"
+            fields:
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Rôle", name: "role", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+
+      # ==================== SERVICES ====================
+      - name: "services"
+        label: "Page Services"
+        file: "content/services.json"
+        fields:
+          - { label: "Titre Hero", name: "hero_title", widget: "string", default: "Tout ce que vos commerciaux n'ont plus le temps de faire." }
+          - { label: "Sous-titre", name: "hero_subtitle", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Nom du service", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icône (Material Symbol)", name: "icon", widget: "string" }
+
+      # ==================== TARIFS ====================
+      - name: "tarifs"
+        label: "Page Tarifs"
+        file: "content/tarifs.json"
+        fields:
+          - { label: "Titre", name: "hero_title", widget: "string", default: "Un investissement minime, une rentabilité immédiate." }
+          - label: "Plans tarifaires"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Nom du plan", name: "name", widget: "string" }
+              - { label: "Prix", name: "price", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Mis en avant", name: "featured", widget: "boolean", default: false }
+              - label: "Fonctionnalités"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+
+      # ==================== BLOG ====================
+      - name: "blog"
+        label: "Page Blog"
+        file: "content/blog.json"
+        fields:
+          - { label: "Titre", name: "hero_title", widget: "string" }
+          - { label: "Sous-titre", name: "hero_subtitle", widget: "text" }
+
+      # ==================== CONTACT ====================
+      - name: "contact"
+        label: "Page Contact"
+        file: "content/contact.json"
+        fields:
+          - { label: "Titre", name: "hero_title", widget: "string", default: "Parlons de votre prospection." }
+          - { label: "Sous-titre", name: "hero_subtitle", widget: "text" }
+          - { label: "Email", name: "email", widget: "string", default: "Falconidia@gmail.com" }
+          - { label: "Téléphone", name: "phone", widget: "string", default: "+33610165708" }
+
+      # ==================== TÉMOIGNAGES ====================
+      - name: "temoignages"
+        label: "Page Témoignages"
+        file: "content/temoignages.json"
+        fields:
+          - { label: "Titre", name: "hero_title", widget: "string" }
+          - label: "Témoignages"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Citation", name: "quote", widget: "text" }
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Poste", name: "position", widget: "string" }
+              - { label: "Entreprise", name: "company", widget: "string" }
+              - { label: "Résultat", name: "result", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }

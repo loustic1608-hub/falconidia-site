@@ -1,0 +1,21 @@
+{
+  "hero_title": "Un trio qui bouscule les codes.",
+  "hero_description": "Nous fusionnons l'intuition humaine et la puissance technologique pour redéfinir les frontières de la performance commerciale.",
+  "team": [
+    {
+      "name": "Otsana",
+      "role": "Co-Fondatrice",
+      "description": "Visionnaire de l'architecture algorithmique. Insuffle la rigueur scientifique nécessaire pour que chaque interaction devienne une mine d'or de données exploitables."
+    },
+    {
+      "name": "Candice",
+      "role": "Stratégie & Growth",
+      "description": "L'experte des marchés. Candice transforme la complexité de l'intelligence artificielle en leviers de croissance concrets pour nos partenaires."
+    },
+    {
+      "name": "Anaïs",
+      "role": "Expérience Utilisateur",
+      "description": "Le pont entre l'homme et la machine. Veille à ce que l'interface reste fluide, intuitive et profondément humaine."
+    }
+  ]
+}
