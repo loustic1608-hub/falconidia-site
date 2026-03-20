@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: loustic1608-hub/falconidia-site
+  repo: OWNER/falconidia-site  # À REMPLACER avec ton username GitHub
   branch: main
 
 media_folder: "images"

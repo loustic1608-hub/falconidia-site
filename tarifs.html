@@ -267,4 +267,32 @@
             © 2024 FalconidIA. Tous droits réservés.
         </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/tarifs.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('header h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        if (data.plans) {
+            const planCards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-3 > div');
+            data.plans.forEach((plan, i) => {
+                if (planCards[i]) {
+                    const h3 = planCards[i].querySelector('h3');
+                    const priceEl = planCards[i].querySelector('.text-4xl, .text-5xl');
+                    const descP = planCards[i].querySelector('p');
+                    if (h3 && plan.name) h3.textContent = plan.name;
+                    if (priceEl && plan.price) priceEl.textContent = plan.price;
+                    if (descP && plan.description) {
+                        descP.innerHTML = plan.description.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+                    }
+                }
+            });
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>

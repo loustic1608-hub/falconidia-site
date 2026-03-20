@@ -244,4 +244,36 @@
 </div>
 </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/contact.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('main h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        const heroP = document.querySelector('main .text-xl');
+        if (heroP && data.hero_subtitle) {
+            heroP.innerHTML = data.hero_subtitle.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+        }
+        
+        // Update email and phone
+        const emailLink = document.querySelector('a[href^="mailto:"]');
+        if (emailLink && data.email) {
+            emailLink.href = 'mailto:' + data.email;
+            const emailText = emailLink.querySelector('p.text-lg');
+            if (emailText) emailText.textContent = data.email;
+        }
+        
+        const phoneLink = document.querySelector('a[href^="tel:"]');
+        if (phoneLink && data.phone) {
+            phoneLink.href = 'tel:' + data.phone;
+            const phoneText = phoneLink.querySelector('p.text-lg');
+            if (phoneText) phoneText.textContent = data.phone;
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>

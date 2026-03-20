@@ -278,4 +278,19 @@
 </div>
 </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/blog.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('header h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        const heroP = document.querySelector('header p');
+        if (heroP && data.hero_subtitle) heroP.textContent = data.hero_subtitle;
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>

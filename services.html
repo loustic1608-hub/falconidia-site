@@ -210,4 +210,33 @@ Engagement 100% automatisé
     Propulsé par le moteur d'intelligence FalconidIA © 2024
 </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/services.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('main section:first-of-type h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        const heroP = document.querySelector('main section:first-of-type p');
+        if (heroP && data.hero_subtitle) {
+            heroP.innerHTML = data.hero_subtitle.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+        }
+        
+        if (data.services) {
+            const cards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-2 > div');
+            data.services.forEach((svc, i) => {
+                if (cards[i]) {
+                    const h3 = cards[i].querySelector('h3');
+                    const p = cards[i].querySelector('p');
+                    if (h3 && svc.title) h3.textContent = svc.title;
+                    if (p && svc.description) p.textContent = svc.description;
+                }
+            });
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>

@@ -288,4 +288,46 @@
             Propulsé par le moteur d'intelligence FalconidIA © 2024
         </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/accueil.json');
+        const data = await res.json();
+        
+        // Hero title - find the h1 in hero section
+        const h1 = document.querySelector('section.relative.pt-32 h1');
+        if (h1 && data.hero_title) {
+            h1.innerHTML = data.hero_title.replace(/IA/g, '<span class="text-ia">IA</span>');
+        }
+        
+        // Hero subtitle
+        const heroP = document.querySelector('section.relative.pt-32 p.text-xl');
+        if (heroP && data.hero_subtitle) heroP.textContent = data.hero_subtitle;
+        
+        // Stats
+        const stats = document.querySelectorAll('section.py-20.bg-surface-container-low .text-center');
+        const statData = [
+            { num: data.stat1_number, label: data.stat1_label },
+            { num: data.stat2_number, label: data.stat2_label },
+            { num: data.stat3_number, label: data.stat3_label },
+            { num: data.stat4_number, label: data.stat4_label }
+        ];
+        stats.forEach((stat, i) => {
+            if (statData[i]) {
+                const numEl = stat.querySelector('.text-4xl');
+                const labelEl = stat.querySelector('.text-sm');
+                if (numEl && statData[i].num) numEl.textContent = statData[i].num;
+                if (labelEl && statData[i].label) labelEl.textContent = statData[i].label;
+            }
+        });
+        
+        // Brand story
+        const storyP = document.querySelector('.glass-card p.text-on-surface');
+        if (storyP && data.brand_story) {
+            storyP.innerHTML = data.brand_story.replace(/IA/g, '<span class="text-ia">IA</span>');
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>

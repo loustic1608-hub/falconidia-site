@@ -278,4 +278,28 @@
 </div>
 </div>
 </footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/temoignages.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('section h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        // Featured testimonial
+        if (data.testimonials && data.testimonials[0]) {
+            const quote = document.querySelector('blockquote');
+            if (quote) {
+                quote.innerHTML = '"' + data.testimonials[0].quote.replace(/IA/g, '<span class="ia-highlight">IA</span>') + '"';
+            }
+            const name = document.querySelector('.flex.items-center.gap-4 .font-bold.text-white.text-lg');
+            if (name) name.textContent = data.testimonials[0].name;
+            const pos = document.querySelector('.text-primary.text-sm.font-semibold');
+            if (pos) pos.textContent = data.testimonials[0].position + ', ' + data.testimonials[0].company;
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
 </body></html>
