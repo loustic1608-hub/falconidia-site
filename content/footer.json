@@ -5,31 +5,55 @@
     {
       "title": "Produit",
       "links": [
-        { "label": "Fonctionnalités", "url": "fonctionnalites.html" },
-        { "label": "Services", "url": "services.html" },
-        { "label": "Tarifs", "url": "tarifs.html" }
+        {
+          "label": "Fonctionnalités",
+          "url": "fonctionnalites.html"
+        },
+        {
+          "label": "Services",
+          "url": "services.html"
+        },
+        {
+          "label": "Tarifs",
+          "url": "tarifs.html"
+        }
       ]
     },
     {
       "title": "Ressources",
       "links": [
-        { "label": "Blog", "url": "blog.html" },
-        { "label": "Documentation", "url": "#" },
-        { "label": "Aide", "url": "#" }
+        {
+          "label": "Blog",
+          "url": "blog.html"
+        },
+        {
+          "label": "Documentation",
+          "url": "#"
+        },
+        {
+          "label": "Aide",
+          "url": "#"
+        }
       ]
     },
     {
       "title": "Entreprise",
       "links": [
-        { "label": "À propos", "url": "a-propos.html" },
-        { "label": "Contact", "url": "contact.html" }
+        {
+          "label": "À propos",
+          "url": "a-propos.html"
+        },
+        {
+          "label": "Contact",
+          "url": "contact.html"
+        }
       ]
     }
   ],
   "social": {
-    "linkedin": "",
-    "instagram": "",
-    "facebook": "",
-    "youtube": ""
+    "linkedin": "https://www.linkedin.com/company/falconidiaservice/",
+    "instagram": "https://www.instagram.com/falconidia_3/",
+    "facebook": "https://www.facebook.com/profile.php?id=61578468167762",
+    "youtube": "https://www.youtube.com/@FalconidIA"
   }
 }
