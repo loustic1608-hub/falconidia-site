@@ -164,7 +164,7 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
 <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-<div class="text-white flex items-center" style=""><img alt="FalconidIA Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugiRfNa6PfF14s-8A7uXbcnoyGoRcL0n9UCKCXwlGJ5F7biZKjoSqLDeSukVMrdjo4waZEsyg-5Y3WDChbi0KIvjJ7PA0OwGGcM2RiqoorsFYd2SIGoVY8NCCK1AvowzQFObDSP6Js8FjdgxoUvRBe56Hqk6WCwdYk8qpCJGUYsBRu07NcaBcTtT5x7TZj2vjZHOWbQn9pS8usTzfK9yOcPGkrUyB3aFJBKbi61Vt9m9u99cGiVZdbZ7qes-IHEm77qvRI9WRMk" style=""/></div>
+<div class="text-2xl font-bold tracking-tighter text-white"><a href="index.html">Falconid<span class="ia-highlight">IA</span></a></div>
 <div class="hidden md:flex gap-8 items-center">
 <a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="index.html" style="">Accueil</a>
 <a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="a-propos.html" style="">À propos</a>
@@ -348,6 +348,29 @@
             if (phoneText) phoneText.textContent = data.phone;
         }
     } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/global.json');
+        const data = await res.json();
+        
+        const socials = { linkedin: 'LinkedIn', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube' };
+        
+        // Find footer links by text content
+        document.querySelectorAll('footer a').forEach(link => {
+            const text = link.textContent.trim();
+            for (const [key, label] of Object.entries(socials)) {
+                if (text === label && data[key]) {
+                    link.href = data[key];
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+            }
+        });
+    } catch(e) { console.log('Global CMS load skipped:', e); }
 })();
 </script>
 </body></html>

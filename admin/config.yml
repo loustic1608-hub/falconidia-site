@@ -112,3 +112,14 @@ collections:
               - { label: "Entreprise", name: "company", widget: "string" }
               - { label: "Résultat", name: "result", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image", required: false }
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - name: "global"
+        label: "Réseaux sociaux & Footer"
+        file: "content/global.json"
+        fields:
+          - { label: "Lien LinkedIn", name: "linkedin", widget: "string", required: false }
+          - { label: "Lien Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Lien Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Lien YouTube", name: "youtube", widget: "string", required: false }

@@ -404,4 +404,27 @@
     } catch(e) { console.log('CMS load skipped:', e); }
 })();
 </script>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/global.json');
+        const data = await res.json();
+        
+        const socials = { linkedin: 'LinkedIn', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube' };
+        
+        // Find footer links by text content
+        document.querySelectorAll('footer a').forEach(link => {
+            const text = link.textContent.trim();
+            for (const [key, label] of Object.entries(socials)) {
+                if (text === label && data[key]) {
+                    link.href = data[key];
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+            }
+        });
+    } catch(e) { console.log('Global CMS load skipped:', e); }
+})();
+</script>
 </body></html>
