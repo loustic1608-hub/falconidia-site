@@ -115,11 +115,28 @@ collections:
   - name: "settings"
     label: "Paramètres du site"
     files:
-      - name: "global"
-        label: "Réseaux sociaux & Footer"
-        file: "content/global.json"
+      - name: "footer"
+        label: "Footer (bas de page)"
+        file: "content/footer.json"
         fields:
-          - { label: "Lien LinkedIn", name: "linkedin", widget: "string", required: false }
-          - { label: "Lien Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "Lien Facebook", name: "facebook", widget: "string", required: false }
-          - { label: "Lien YouTube", name: "youtube", widget: "string", required: false }
+          - { label: "Texte copyright / slogan", name: "copyright", widget: "text" }
+          - { label: "Texte bas de page", name: "bottom_text", widget: "string" }
+          - label: "Colonnes du footer"
+            name: "columns"
+            widget: "list"
+            fields:
+              - { label: "Titre de la colonne", name: "title", widget: "string" }
+              - label: "Liens"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Texte du lien", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+          - label: "Réseaux sociaux"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Lien LinkedIn", name: "linkedin", widget: "string", required: false }
+              - { label: "Lien Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Lien Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Lien YouTube", name: "youtube", widget: "string", required: false }

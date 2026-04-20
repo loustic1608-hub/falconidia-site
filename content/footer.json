@@ -1,0 +1,35 @@
+{
+  "copyright": "© 2024 FalconidIA. Voir plus loin. Décider plus vite. Notre IA travaille pour vous 24h/24, 7j/7.",
+  "bottom_text": "Propulsé par le moteur d'intelligence FalconidIA © 2024",
+  "columns": [
+    {
+      "title": "Produit",
+      "links": [
+        { "label": "Fonctionnalités", "url": "fonctionnalites.html" },
+        { "label": "Services", "url": "services.html" },
+        { "label": "Tarifs", "url": "tarifs.html" }
+      ]
+    },
+    {
+      "title": "Ressources",
+      "links": [
+        { "label": "Blog", "url": "blog.html" },
+        { "label": "Documentation", "url": "#" },
+        { "label": "Aide", "url": "#" }
+      ]
+    },
+    {
+      "title": "Entreprise",
+      "links": [
+        { "label": "À propos", "url": "a-propos.html" },
+        { "label": "Contact", "url": "contact.html" }
+      ]
+    }
+  ],
+  "social": {
+    "linkedin": "",
+    "instagram": "",
+    "facebook": "",
+    "youtube": ""
+  }
+}
