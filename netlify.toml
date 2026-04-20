@@ -1,7 +1,426 @@
-[build]
-  publish = "."
+<!DOCTYPE html>
 
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#75d1ff",
+              "on-surface": "#d8e2ff",
+              "on-primary-fixed-variant": "#004e5f",
+              "background": "#001233",
+              "on-tertiary-container": "#004057",
+              "surface-tint": "#4cd6fb",
+              "error-container": "#93000a",
+              "primary-container": "#00b4d8",
+              "surface-dim": "#001233",
+              "on-tertiary": "#003548",
+              "tertiary-fixed-dim": "#75d1ff",
+              "on-tertiary-fixed-variant": "#004d67",
+              "on-secondary-fixed-variant": "#5900c6",
+              "secondary-fixed-dim": "#d2bbff",
+              "surface-bright": "#28395b",
+              "primary": "#4cd6fb",
+              "surface-variant": "#243456",
+              "on-primary-fixed": "#001f27",
+              "primary-fixed-dim": "#4cd6fb",
+              "outline-variant": "#3d494d",
+              "secondary": "#d2bbff",
+              "on-background": "#d8e2ff",
+              "surface-container": "#0d1f40",
+              "on-primary": "#003642",
+              "on-primary-container": "#00414f",
+              "secondary-container": "#6800e4",
+              "outline": "#869398",
+              "surface-container-highest": "#243456",
+              "on-error": "#690005",
+              "inverse-primary": "#00677d",
+              "on-secondary-fixed": "#25005a",
+              "primary-fixed": "#b3ebff",
+              "on-secondary": "#3e008e",
+              "inverse-surface": "#d8e2ff",
+              "surface-container-high": "#18294b",
+              "on-tertiary-fixed": "#001e2b",
+              "on-error-container": "#ffdad6",
+              "surface-container-low": "#081a3b",
+              "surface": "#001233",
+              "error": "#ffb4ab",
+              "on-secondary-container": "#d2bbff",
+              "on-surface-variant": "#bcc9ce",
+              "inverse-on-surface": "#1f3051",
+              "tertiary-fixed": "#c2e8ff",
+              "surface-container-lowest": "#000d29",
+              "tertiary-container": "#36b1e4",
+              "secondary-fixed": "#eaddff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .signature-gradient {
+        background: linear-gradient(135deg, #00B4D8 0%, #7B2FF7 100%);
+      }
+      .ghost-border {
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .glass-card {
+        background: rgba(13, 31, 64, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .ia-highlight {
+        color: #00B4D8;
+      }
+    </style>
+
+<style>
+    /* Mobile Menu */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 13, 41, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .mobile-menu-overlay.active { display: flex; }
+    .mobile-menu-overlay a {
+        color: #d8e2ff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.2s;
+    }
+    .mobile-menu-overlay a:hover,
+    .mobile-menu-overlay a.active-link { color: #00B4D8; }
+    .mobile-menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: white;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.25rem;
+    }
+    @media (max-width: 768px) {
+        .hamburger-btn { display: flex; align-items: center; }
+        .nav-contact-btn { font-size: 0.75rem; padding: 0.4rem 1rem !important; }
+        /* Fix hero text sizes for mobile */
+        .mobile-hero-fix { font-size: 2.5rem !important; }
+        /* Fix padding on mobile */
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        /* Fix footer grid on mobile */
+        footer .grid { gap: 2rem !important; padding: 3rem 1.5rem !important; }
+    }
+    @media (max-width: 480px) {
+        .mobile-hero-fix { font-size: 2rem !important; }
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('active')">&times;</button>
+    <a href="index.html">Accueil</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="fonctionnalites.html">Fonctionnalités</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white" style="margin-top:1rem">Contact</a>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-white"><a href="index.html">Falconid<span class="ia-highlight">IA</span></a></div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="index.html" style="">Accueil</a>
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="a-propos.html" style="">À propos</a>
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="services.html" style="">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="fonctionnalites.html" style="">Fonctionnalités</a>
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="tarifs.html" style="">Tarifs</a>
+<a class="text-slate-300 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="blog.html" style="">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hamburger-btn" onclick="document.getElementById('mobileMenu').classList.add('active')"><span class="material-symbols-outlined">menu</span></button>
+<button class="text-[#00B4D8] font-semibold border-b-2 border-[#00B4D8] pb-1 scale-95 active:scale-90 transition-transform" style="">Contact</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Hero Header -->
+<div class="mb-16 md:mb-24">
+<h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight max-w-4xl" style="">
+                    Parlons de votre prospection.
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-light" style="">
+                    Dynamiques, professionnelles et directes — nous répondons vite. L'<span class="ia-highlight" style="">IA</span> n'attend pas, nous non plus.
+                </p>
+</div>
+<!-- Content Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Form -->
+<div class="lg:col-span-7">
+<div class="glass-card ghost-border p-8 md:p-12 rounded-2xl shadow-2xl">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant ml-1" style="">Nom complet</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-white placeholder:text-slate-500 transition-all ghost-border" placeholder="Jean Dupont" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant ml-1" style="">Entreprise</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-white placeholder:text-slate-500 transition-all ghost-border" placeholder="FalconidIA Corp" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant ml-1" style="">E-mail professionnel</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-white placeholder:text-slate-500 transition-all ghost-border" placeholder="jean@entreprise.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant ml-1" style="">Téléphone</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-white placeholder:text-slate-500 transition-all ghost-border" placeholder="+33 6 00 00 00 00" type="tel"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant ml-1" style="">Votre message</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-white placeholder:text-slate-500 transition-all ghost-border resize-none" placeholder="Comment pouvons-nous accélérer votre croissance ?" rows="5"></textarea>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="signature-gradient w-full md:w-auto px-12 py-5 rounded-full font-bold text-white shadow-lg hover:shadow-[0_0_30px_rgba(123,47,247,0.4)] transition-all active:scale-95" style="" type="submit">
+                                    Envoyer
+                                </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Column: Contact Info & Atmosphere -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- Direct Contact Card -->
+<div class="bg-surface-container-low p-8 rounded-2xl flex flex-col gap-8">
+<div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6" style="">Contact Direct</h3>
+<div class="space-y-6">
+<a class="group flex items-center gap-4 hover:translate-x-2 transition-transform" href="mailto:contact@falconidia.com" style="">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="">mail</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant" style="">Email</p>
+<p class="text-lg font-semibold group-hover:text-primary transition-colors" style="">Falconidia@gmail.com</p>
+</div>
+</a>
+<a class="group flex items-center gap-4 hover:translate-x-2 transition-transform" href="tel:+33123456789" style="">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="">call</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant" style="">Téléphone</p>
+<p class="text-lg font-semibold group-hover:text-primary transition-colors" style="">+33610165708</p>
+</div>
+</a>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5">
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6" style="">Suivez l'évolution</h3>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-background transition-all group" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-background transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-background transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">play_circle</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-primary hover:text-background transition-all" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">group</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Asymmetric Visual Element -->
+<div class="relative flex-1 min-h-[300px] rounded-2xl overflow-hidden glass-card ghost-border">
+<div class="absolute inset-0 signature-gradient opacity-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="Digital blue intelligence network abstraction" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu6H9mDGRe6IORk7JXPqvO34G1q_tzw-1U88UzO4_2il_dCGIkPKd8xVyobdBQ1BKsKWwHhWKXc_jX0T53cyEOrciIIBlQzHwdQT4el7GJZaJrTpo6kymQ7QjqYdN9YnpDAWeIwvAnyLWKXbGbYX8snFAqOMEXuw9XVBP-ZdqamgdGdy2xNboFmW8PLFHt5Hk6ZW8vorRME_3C7L11T4hLLdpj7FfaK0H2gBt4S16lEp5RCQA1OvePV0BuBdItVWzIpDYtVCD2WCQ" style=""/>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-4xl font-black text-white/10 uppercase select-none leading-none" style="">Intelligence<br/>Rapide</div>
+<div class="mt-4 p-4 bg-white/5 backdrop-blur-md rounded-xl inline-block border border-white/10">
+<p class="text-sm font-medium" style="">Temps de réponse moyen : <span class="text-primary" style="">14 mins</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#060F1E] w-full rounded-t-[24px] mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="md:col-span-1">
+<div class="text-xl font-black text-white mb-4" style="">Falconid<span class="ia-highlight" style="">IA</span></div>
+<p class="text-slate-400" style="">© 2024 FalconidIA. Voir plus loin. Décider plus vite. Notre IA travaille pour vous 24h/24, 7j/7.</p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6" style="">Produit</h4>
+<ul class="space-y-4">
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="fonctionnalites.html" style="">Fonctionnalités</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="tarifs.html" style="">Tarifs</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="#" style="">API</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6" style="">Entreprise</h4>
+<ul class="space-y-4">
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="a-propos.html" style="">À propos</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="blog.html" style="">Blog</a></li>
+<li class="" style=""><a class="text-[#00B4D8] hover:translate-x-1 transition-transform inline-block" href="contact.html" style="">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6" style="">Social</h4>
+<ul class="space-y-4">
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="#" style="">LinkedIn</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="#" style="">Instagram</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="#" style="">Facebook</a></li>
+<li class="" style=""><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-transform inline-block" href="#" style="">YouTube</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/contact.json');
+        const data = await res.json();
+        
+        const heroH1 = document.querySelector('main h1');
+        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
+        
+        const heroP = document.querySelector('main .text-xl');
+        if (heroP && data.hero_subtitle) {
+            heroP.innerHTML = data.hero_subtitle.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+        }
+        
+        // Update email and phone
+        const emailLink = document.querySelector('a[href^="mailto:"]');
+        if (emailLink && data.email) {
+            emailLink.href = 'mailto:' + data.email;
+            const emailText = emailLink.querySelector('p.text-lg');
+            if (emailText) emailText.textContent = data.email;
+        }
+        
+        const phoneLink = document.querySelector('a[href^="tel:"]');
+        if (phoneLink && data.phone) {
+            phoneLink.href = 'tel:' + data.phone;
+            const phoneText = phoneLink.querySelector('p.text-lg');
+            if (phoneText) phoneText.textContent = data.phone;
+        }
+    } catch(e) { console.log('CMS load skipped:', e); }
+})();
+</script>
+
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/footer.json');
+        const data = await res.json();
+        
+        const footer = document.querySelector('footer');
+        if (!footer || !data) return;
+        
+        // Build footer HTML dynamically
+        let columnsHTML = '';
+        
+        // Logo + copyright column
+        columnsHTML += `
+        <div class="md:col-span-1">
+            <div class="text-xl font-black text-white mb-4">Falconid<span style="color:#00B4D8">IA</span></div>
+            <p class="text-slate-400 opacity-80 mb-6">${data.copyright || ''}</p>
+        </div>`;
+        
+        // Dynamic columns
+        if (data.columns) {
+            data.columns.forEach(col => {
+                let linksHTML = '';
+                if (col.links) {
+                    col.links.forEach(link => {
+                        linksHTML += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${link.url}">${link.label}</a></li>`;
+                    });
+                }
+                columnsHTML += `
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">${col.title}</h4>
+                    <ul class="space-y-4">${linksHTML}</ul>
+                </div>`;
+            });
+        }
+        
+        // Social column
+        if (data.social) {
+            const socials = [
+                { key: 'linkedin', label: 'LinkedIn' },
+                { key: 'instagram', label: 'Instagram' },
+                { key: 'facebook', label: 'Facebook' },
+                { key: 'youtube', label: 'YouTube' }
+            ];
+            let socialLinks = '';
+            socials.forEach(s => {
+                const url = data.social[s.key] || '#';
+                const target = url !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '';
+                socialLinks += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${url}"${target}>${s.label}</a></li>`;
+            });
+            columnsHTML += `
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Suivez-nous</h4>
+                <ul class="space-y-4">${socialLinks}</ul>
+            </div>`;
+        }
+        
+        // Bottom text
+        const bottomHTML = data.bottom_text 
+            ? `<div class="border-t border-white/5 py-8 text-center text-[10px] text-slate-500 uppercase tracking-[0.2em]">${data.bottom_text}</div>` 
+            : '';
+        
+        footer.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+                ${columnsHTML}
+            </div>
+            ${bottomHTML}
+        `;
+    } catch(e) { console.log('Footer CMS load skipped:', e); }
+})();
+</script>
+</body></html>

@@ -1,82 +1,94 @@
 <!DOCTYPE html>
+
 <html class="dark" lang="fr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FalconidIA - Services</title>
+<title>FalconidIA - L'IA qui transforme chaque contact en opportunité</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            extend: {
-                colors: {
-                    "tertiary": "#75d1ff",
-                    "on-surface": "#d8e2ff",
-                    "on-primary-fixed-variant": "#004e5f",
-                    "background": "#001233",
-                    "on-tertiary-container": "#004057",
-                    "surface-tint": "#4cd6fb",
-                    "error-container": "#93000a",
-                    "primary-container": "#00b4d8",
-                    "surface-dim": "#001233",
-                    "on-tertiary": "#003548",
-                    "tertiary-fixed-dim": "#75d1ff",
-                    "on-tertiary-fixed-variant": "#004d67",
-                    "on-secondary-fixed-variant": "#5900c6",
-                    "secondary-fixed-dim": "#d2bbff",
-                    "surface-bright": "#28395b",
-                    "primary": "#4cd6fb",
-                    "surface-variant": "#243456",
-                    "on-primary-fixed": "#001f27",
-                    "primary-fixed-dim": "#4cd6fb",
-                    "outline-variant": "#3d494d",
-                    "secondary": "#d2bbff",
-                    "on-background": "#d8e2ff",
-                    "surface-container": "#0d1f40",
-                    "on-primary": "#003642",
-                    "on-primary-container": "#00414f",
-                    "secondary-container": "#6800e4",
-                    "outline": "#869398",
-                    "surface-container-highest": "#243456",
-                    "on-error": "#690005",
-                    "inverse-primary": "#00677d",
-                    "on-secondary-fixed": "#25005a",
-                    "primary-fixed": "#b3ebff",
-                    "on-secondary": "#3e008e",
-                    "inverse-surface": "#d8e2ff",
-                    "surface-container-high": "#18294b",
-                    "on-tertiary-fixed": "#001e2b",
-                    "on-error-container": "#ffdad6",
-                    "surface-container-low": "#081a3b",
-                    "surface": "#001233",
-                    "error": "#ffb4ab",
-                    "on-secondary-container": "#d2bbff",
-                    "on-surface-variant": "#bcc9ce",
-                    "inverse-on-surface": "#1f3051",
-                    "tertiary-fixed": "#c2e8ff",
-                    "surface-container-lowest": "#000d29",
-                    "tertiary-container": "#36b1e4",
-                    "secondary-fixed": "#eaddff"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#75d1ff",
+                        "on-surface": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004e5f",
+                        "background": "#001233",
+                        "on-tertiary-container": "#004057",
+                        "surface-tint": "#4cd6fb",
+                        "error-container": "#93000a",
+                        "primary-container": "#00b4d8",
+                        "surface-dim": "#001233",
+                        "on-tertiary": "#003548",
+                        "tertiary-fixed-dim": "#75d1ff",
+                        "on-tertiary-fixed-variant": "#004d67",
+                        "on-secondary-fixed-variant": "#5900c6",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "surface-bright": "#28395b",
+                        "primary": "#4cd6fb",
+                        "surface-variant": "#243456",
+                        "on-primary-fixed": "#001f27",
+                        "primary-fixed-dim": "#4cd6fb",
+                        "outline-variant": "#3d494d",
+                        "secondary": "#d2bbff",
+                        "on-background": "#d8e2ff",
+                        "surface-container": "#0d1f40",
+                        "on-primary": "#003642",
+                        "on-primary-container": "#00414f",
+                        "secondary-container": "#6800e4",
+                        "outline": "#869398",
+                        "surface-container-highest": "#243456",
+                        "on-error": "#690005",
+                        "inverse-primary": "#00677d",
+                        "on-secondary-fixed": "#25005a",
+                        "primary-fixed": "#b3ebff",
+                        "on-secondary": "#3e008e",
+                        "inverse-surface": "#d8e2ff",
+                        "surface-container-high": "#18294b",
+                        "on-tertiary-fixed": "#001e2b",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#081a3b",
+                        "surface": "#001233",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#d2bbff",
+                        "on-surface-variant": "#bcc9ce",
+                        "inverse-on-surface": "#1f3051",
+                        "tertiary-fixed": "#c2e8ff",
+                        "surface-container-lowest": "#000d29",
+                        "tertiary-container": "#36b1e4",
+                        "secondary-fixed": "#eaddff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
                 },
-                fontFamily: {
-                    "headline": ["Inter"],
-                    "body": ["Inter"],
-                    "label": ["Inter"]
-                },
-                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
             },
-        },
-    }
-</script>
+        }
+    </script>
 <style>
-    .signature-gradient { background: linear-gradient(135deg, #00B4D8 0%, #7B2FF7 100%); }
-    .ghost-border { border: 1px solid rgba(255, 255, 255, 0.07); }
-    .glass-card { background: rgba(13, 31, 64, 0.6); backdrop-filter: blur(20px); }
-    .ia-highlight { color: #00B4D8; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-</style>
+        .signature-gradient {
+            background: linear-gradient(135deg, #00B4D8 0%, #7B2FF7 100%);
+        }
+        .glass-card {
+            background: rgba(13, 31, 64, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .text-ia { color: #00B4D8; }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(123, 47, 247, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
 
 <style>
     /* Mobile Menu */
@@ -138,7 +150,7 @@
     }
 </style>
 </head>
-<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<body class="bg-[#0D1F40] text-on-surface font-body selection:bg-primary/30">
 
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenu">
@@ -153,13 +165,13 @@
 </div>
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide">
+<nav class="fixed top-0 w-full z-50 bg-[#0D1F40] shadow-2xl shadow-black/20 font-['Inter'] antialiased text-sm tracking-wide no-border tonal-shift">
 <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-<div class="text-2xl font-bold tracking-tighter text-white">Falconid<span class="ia-highlight">IA</span></div>
+<div class="text-2xl font-bold tracking-tighter text-white">Falconid<span class="text-ia">IA</span></div>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-slate-300 hover:text-white transition-colors" href="index.html">Accueil</a>
+<a class="text-[#00B4D8] font-semibold border-b-2 border-[#00B4D8] pb-1" href="index.html">Accueil</a>
 <a class="text-slate-300 hover:text-white transition-colors" href="a-propos.html">À propos</a>
-<a class="text-[#00B4D8] font-semibold border-b-2 border-[#00B4D8] pb-1" href="services.html">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="services.html">Services</a>
 <a class="text-slate-300 hover:text-white transition-colors" href="fonctionnalites.html">Fonctionnalités</a>
 <a class="text-slate-300 hover:text-white transition-colors" href="tarifs.html">Tarifs</a>
 <a class="text-slate-300 hover:text-white transition-colors" href="blog.html">Blog</a>
@@ -168,110 +180,176 @@
 <a href="contact.html" class="signature-gradient px-6 py-2 rounded-full font-bold text-white transition-transform scale-95 active:scale-90 hover:shadow-[0_0_20px_rgba(123,47,247,0.3)] inline-block">Contact</a>
 </div>
 </nav>
-
-<main class="pt-32">
 <!-- Hero Section -->
-<section class="relative px-8 pb-20 max-w-7xl mx-auto">
-<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
-<div class="max-w-4xl relative z-10">
-<h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight italic">
-    Tout ce que vos commerciaux n'ont plus le temps de faire.
-</h1>
-<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-    Nous avons créé Falconid<span class="ia-highlight">IA</span>, un moteur d'intelligence commerciale qui s'occupe de tout.
-</p>
-</div>
-</section>
-
-<!-- Services Cards -->
-<section class="px-8 py-20 max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- La Veille Stratégique -->
-<div class="glass-card ghost-border p-10 rounded-2xl relative overflow-hidden group hover:bg-surface-container-highest transition-all duration-300">
-<div class="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-<span class="material-symbols-outlined text-7xl">monitoring</span>
-</div>
-<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-8">
-<span class="material-symbols-outlined text-primary text-2xl">monitoring</span>
-</div>
-<h3 class="text-2xl font-bold text-white mb-4">La Veille Stratégique</h3>
-<p class="text-on-surface-variant leading-relaxed">Ne laissez plus aucune opportunité vous échapper. Notre moteur surveille en temps réel les levées de fonds, les mouvements stratégiques et les nominations clés pour votre marché.</p>
-</div>
-
-<!-- La Prise de Rendez-vous -->
-<div class="glass-card p-10 rounded-2xl relative overflow-hidden group hover:bg-surface-container-highest transition-all duration-300 border-2 border-primary/30">
-<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-8">
-<span class="material-symbols-outlined text-primary text-2xl">calendar_month</span>
-</div>
-<h3 class="text-2xl font-bold text-white mb-4">La Prise de Rendez-vous</h3>
-<p class="text-on-surface-variant leading-relaxed mb-6">Automatisation intelligente et ultra-personnalisée de vos premiers contacts. Nous transformons les signaux faibles en opportunités concrètes dans vos agendas.</p>
-<div class="flex items-center gap-2 text-primary font-semibold text-sm">
-<span class="material-symbols-outlined text-lg">auto_awesome</span>
-Engagement 100% automatisé
-</div>
-</div>
-</div>
-</section>
-
-<!-- Focus Performance -->
-<section class="px-8 py-20 bg-surface-container-low">
-<div class="max-w-4xl mx-auto text-center">
-<span class="inline-block px-4 py-2 rounded-full border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase mb-6">Focus Performance</span>
-<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">La Valeur Ajoutée</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed max-w-3xl mx-auto mb-10">
-    Falconid<span class="ia-highlight">IA</span> évolue au coeur de l'intelligence commerciale BtoB. En fusionnant la veille stratégique de pointe et l'automatisation de la prospection pour transformer chaque signal d'affaires en rendez-vous qualifié.
-</p>
-<a href="fonctionnalites.html" class="signature-gradient px-8 py-4 rounded-full font-bold text-white inline-flex items-center gap-2 hover:shadow-[0_0_30px_rgba(123,47,247,0.4)] transition-all">
-    Découvrir comment ça marche
-    <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-</section>
-
-<!-- CTA Section -->
-<section class="px-8 py-32">
-<div class="max-w-5xl mx-auto glass-card ghost-border rounded-[2.5rem] p-12 lg:p-20 text-center relative overflow-hidden">
+<section class="relative pt-32 pb-20 px-6 overflow-hidden min-h-screen flex items-center">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#00B4D8] opacity-10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#7B2FF7] opacity-10 blur-[120px] rounded-full"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div class="relative z-10">
-<h2 class="text-4xl lg:text-5xl font-bold text-white mb-8 tracking-tighter">
-    Prêt à propulser votre croissance ?
-</h2>
-<p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">
-    L'<span class="ia-highlight">IA</span> de Falconid<span class="ia-highlight">IA</span> est conçue pour devenir l'assistant le plus efficace de votre équipe de vente. Libérez vos talents des tâches répétitives.
-</p>
-<a href="contact.html" class="signature-gradient px-10 py-5 rounded-2xl font-bold text-white inline-block hover:scale-105 transition-transform shadow-2xl">
-    Démarrer maintenant
-</a>
+<span class="text-primary font-label text-xs tracking-widest uppercase mb-6 block">Intelligence Engine v2.0</span>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1] mb-8">
+                    L'<span class="text-ia">IA</span> qui transforme chaque contact en opportunité.
+                </h1>
+<p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Arrêtez de prospecter au hasard. Commencez à viser juste. Notre moteur prédictif analyse des millions de signaux pour vous livrer les meilleures cibles.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="signature-gradient px-8 py-4 rounded-xl font-bold text-white glow-hover transition-all">
+                        Demander une démo
+                    </button>
+<button class="border-[1.5px] border-primary text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary/5 transition-all">
+                        Commencer maintenant
+                    </button>
 </div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-3xl rounded-full"></div>
 </div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-[#060F1E] w-full rounded-t-[24px] mt-20">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
-<div class="col-span-1">
-<div class="text-xl font-black text-white mb-4">Falconid<span class="ia-highlight">IA</span></div>
-<p class="text-slate-400">© 2024 FalconidIA. Voir plus loin. Décider plus vite. Notre <span class="ia-highlight">IA</span> travaille pour vous 24h/24, 7j/7.</p>
+<div class="relative group">
+<!-- Asymmetric Bento-style Hero Component -->
+<div class="glass-card p-8 rounded-2xl relative z-10 overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500">
+<div class="flex items-center justify-between mb-8">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-[#FFB400]"></div>
+<div class="w-3 h-3 rounded-full bg-[#00C853]"></div>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">LIVE_FEED: ACTIVE</span>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-highest/40 rounded-xl border border-white/5 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg signature-gradient flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="rocket_launch">rocket_launch</span>
 </div>
 <div>
-<h4 class="text-white font-bold mb-6">Produit</h4>
+<div class="text-sm font-bold text-white">Nouveau Lead Qualifié</div>
+<div class="text-xs text-on-surface-variant">TechCorp Inc. • Score: 98%</div>
+</div>
+<div class="ml-auto text-primary font-bold">+12k€</div>
+</div>
+<div class="p-4 bg-surface-container-highest/40 rounded-xl border border-white/5 flex items-center gap-4 opacity-60">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400" data-icon="query_stats">query_stats</span>
+</div>
+<div>
+<div class="text-sm font-bold text-white">Analyse de Marché</div>
+<div class="text-xs text-on-surface-variant">Secteur: SaaS Financement</div>
+</div>
+</div>
+</div>
+<!-- Stats overlay breaking the card boundary -->
+<div class="absolute -bottom-4 -right-4 glass-card p-6 rounded-2xl border-primary/20 shadow-xl">
+<div class="text-3xl font-bold text-primary tracking-tighter">98%</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant">Précision des Leads</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid (Key Stats) -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-black text-white mb-2">98%</div>
+<div class="text-sm text-on-surface-variant font-label tracking-wide">PRÉCISION DES LEADS</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-black text-primary mb-2">3×</div>
+<div class="text-sm text-on-surface-variant font-label tracking-wide">PLUS DE RENDEZ-VOUS</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-black text-white mb-2">+50k</div>
+<div class="text-sm text-on-surface-variant font-label tracking-wide">ENTREPRISES ADHÉRENTES</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-black text-primary mb-2">24/7</div>
+<div class="text-sm text-on-surface-variant font-label tracking-wide">DISPONIBLE EN CONTINU</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story Section -->
+<section class="px-6 py-16">
+<div class="mx-auto text-center max-w-3xl">
+<h2 class="font-bold text-white mb-12 leading-tight text-2xl md:text-3xl">
+                L'avenir de la vente est une science, <br/>pas un jeu de hasard.
+            </h2>
+<div class="glass-card rounded-2xl text-left relative overflow-hidden p-8">
+<div class="absolute top-0 right-0 opacity-5 p-4">
+<span class="material-symbols-outlined text-[80px]" data-icon="psychology">psychology</span>
+</div>
+<p class="text-on-surface leading-relaxed relative z-10 text-base md:text-lg">
+                    Falconid<span class="text-ia">IA</span>, c'est une idée simple : arrêter de prospecter au hasard et commencer à viser juste. Nous avons fusionné l'instinct commercial avec la puissance brute de l'intelligence artificielle pour créer une plateforme qui ne se contente pas de trouver des noms, mais prédit des intentions d'achat. Notre <span class="text-ia font-bold">IA</span> travaille pour vous 24h/24, 7j/7, identifiant les signaux faibles qui cachent les plus grandes opportunités.
+                </p>
+</div>
+</div>
+</section>
+<!-- Values Section (Bento Style) -->
+<section class="py-32 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-20">
+<span class="text-primary font-label text-xs tracking-widest uppercase mb-4 block">Nos Piliers</span>
+<h2 class="text-4xl font-bold text-white">L'ADN de Falconid<span class="text-ia">IA</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Value 1 -->
+<div class="glass-card p-10 rounded-2xl group hover:bg-surface-container-highest transition-all duration-300">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="target">target</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">L'Instinct de Précision</h3>
+<p class="text-on-surface-variant leading-relaxed">Transformez la donnée brute en opportunités concrètes. Grâce à un moteur de calcul rigoureux, nous éliminons les incertitudes pour ne vous transmettre que les informations à haute valeur ajoutée.</p>
+</div>
+<!-- Value 2 -->
+<div class="glass-card p-10 rounded-2xl group hover:bg-surface-container-highest transition-all duration-300 md:mt-12">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" data-icon="neurology">neurology</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">L'Humain Augmenté</h3>
+<p class="text-on-surface-variant leading-relaxed">Dotez vos équipes de capacités analytiques supérieures. Notre solution libère vos talents des contraintes opérationnelles pour valoriser leur expertise métier et leur capacité d'empathie.</p>
+</div>
+<!-- Value 3 -->
+<div class="glass-card p-10 rounded-2xl group hover:bg-surface-container-highest transition-all duration-300">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" data-icon="trending_up">trending_up</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">La Croissance Partagée</h3>
+<p class="text-on-surface-variant leading-relaxed">Nous concevons notre succès à travers celui de nos entreprises partenaires. Notre modèle repose sur une synergie durable, où l'innovation technologique devient le moteur de votre développement économique.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Footer Section -->
+<!-- Footer -->
+<footer class="bg-[#060F1E] w-full rounded-t-[24px] tonal-shift-from-surface">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="md:col-span-1">
+<div class="text-xl font-black text-white mb-4">Falconid<span class="text-ia">IA</span></div>
+<p class="text-slate-400 opacity-80 mb-6 italic">© 2024 FalconidIA. Voir plus loin. Décider plus vite. Notre IA travaille pour vous 24h/24, 7j/7.</p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-[#00B4D8] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-slate-400 hover:text-[#00B4D8] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="hub">hub</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Produit</h4>
 <ul class="space-y-4">
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="fonctionnalites.html">Fonctionnalités</a></li>
-<li><a class="text-[#00B4D8] hover:translate-x-1 transition-all inline-block" href="services.html">Services</a></li>
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="tarifs.html">Tarifs</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">API &amp; Intégrations</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Roadmap</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold mb-6">Ressources</h4>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Ressources</h4>
 <ul class="space-y-4">
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="blog.html">Blog</a></li>
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Documentation</a></li>
-<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Aide</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Études de cas</a></li>
+<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Webinaires</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold mb-6">Entreprise</h4>
+<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Réseaux Sociaux</h4>
 <ul class="space-y-4">
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">LinkedIn</a></li>
 <li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="#">Instagram</a></li>
@@ -281,59 +359,122 @@ Engagement 100% automatisé
 </div>
 </div>
 <div class="border-t border-white/5 py-8 text-center text-[10px] text-slate-500 uppercase tracking-[0.2em]">
-    Propulsé par le moteur d'intelligence FalconidIA © 2024
-</div>
+            Propulsé par le moteur d'intelligence FalconidIA © 2024
+        </div>
 </footer>
 
 <script>
 (async function() {
     try {
-        const res = await fetch('/content/services.json');
+        const res = await fetch('/content/accueil.json');
         const data = await res.json();
         
-        const heroH1 = document.querySelector('main section:first-of-type h1');
-        if (heroH1 && data.hero_title) heroH1.textContent = data.hero_title;
-        
-        const heroP = document.querySelector('main section:first-of-type p');
-        if (heroP && data.hero_subtitle) {
-            heroP.innerHTML = data.hero_subtitle.replace(/IA/g, '<span class="ia-highlight">IA</span>');
+        // Hero title - find the h1 in hero section
+        const h1 = document.querySelector('section.relative.pt-32 h1');
+        if (h1 && data.hero_title) {
+            h1.innerHTML = data.hero_title.replace(/IA/g, '<span class="text-ia">IA</span>');
         }
         
-        if (data.services) {
-            const cards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-2 > div');
-            data.services.forEach((svc, i) => {
-                if (cards[i]) {
-                    const h3 = cards[i].querySelector('h3');
-                    const p = cards[i].querySelector('p');
-                    if (h3 && svc.title) h3.textContent = svc.title;
-                    if (p && svc.description) p.textContent = svc.description;
-                }
-            });
+        // Hero subtitle
+        const heroP = document.querySelector('section.relative.pt-32 p.text-xl');
+        if (heroP && data.hero_subtitle) heroP.textContent = data.hero_subtitle;
+        
+        // Stats
+        const stats = document.querySelectorAll('section.py-20.bg-surface-container-low .text-center');
+        const statData = [
+            { num: data.stat1_number, label: data.stat1_label },
+            { num: data.stat2_number, label: data.stat2_label },
+            { num: data.stat3_number, label: data.stat3_label },
+            { num: data.stat4_number, label: data.stat4_label }
+        ];
+        stats.forEach((stat, i) => {
+            if (statData[i]) {
+                const numEl = stat.querySelector('.text-4xl');
+                const labelEl = stat.querySelector('.text-sm');
+                if (numEl && statData[i].num) numEl.textContent = statData[i].num;
+                if (labelEl && statData[i].label) labelEl.textContent = statData[i].label;
+            }
+        });
+        
+        // Brand story
+        const storyP = document.querySelector('.glass-card p.text-on-surface');
+        if (storyP && data.brand_story) {
+            storyP.innerHTML = data.brand_story.replace(/IA/g, '<span class="text-ia">IA</span>');
         }
     } catch(e) { console.log('CMS load skipped:', e); }
 })();
 </script>
 
+
 <script>
 (async function() {
     try {
-        const res = await fetch('/content/global.json');
+        const res = await fetch('/content/footer.json');
         const data = await res.json();
         
-        const socials = { linkedin: 'LinkedIn', instagram: 'Instagram', facebook: 'Facebook', youtube: 'YouTube' };
+        const footer = document.querySelector('footer');
+        if (!footer || !data) return;
         
-        // Find footer links by text content
-        document.querySelectorAll('footer a').forEach(link => {
-            const text = link.textContent.trim();
-            for (const [key, label] of Object.entries(socials)) {
-                if (text === label && data[key]) {
-                    link.href = data[key];
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
+        // Build footer HTML dynamically
+        let columnsHTML = '';
+        
+        // Logo + copyright column
+        columnsHTML += `
+        <div class="md:col-span-1">
+            <div class="text-xl font-black text-white mb-4">Falconid<span style="color:#00B4D8">IA</span></div>
+            <p class="text-slate-400 opacity-80 mb-6">${data.copyright || ''}</p>
+        </div>`;
+        
+        // Dynamic columns
+        if (data.columns) {
+            data.columns.forEach(col => {
+                let linksHTML = '';
+                if (col.links) {
+                    col.links.forEach(link => {
+                        linksHTML += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${link.url}">${link.label}</a></li>`;
+                    });
                 }
-            }
-        });
-    } catch(e) { console.log('Global CMS load skipped:', e); }
+                columnsHTML += `
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">${col.title}</h4>
+                    <ul class="space-y-4">${linksHTML}</ul>
+                </div>`;
+            });
+        }
+        
+        // Social column
+        if (data.social) {
+            const socials = [
+                { key: 'linkedin', label: 'LinkedIn' },
+                { key: 'instagram', label: 'Instagram' },
+                { key: 'facebook', label: 'Facebook' },
+                { key: 'youtube', label: 'YouTube' }
+            ];
+            let socialLinks = '';
+            socials.forEach(s => {
+                const url = data.social[s.key] || '#';
+                const target = url !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '';
+                socialLinks += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${url}"${target}>${s.label}</a></li>`;
+            });
+            columnsHTML += `
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Suivez-nous</h4>
+                <ul class="space-y-4">${socialLinks}</ul>
+            </div>`;
+        }
+        
+        // Bottom text
+        const bottomHTML = data.bottom_text 
+            ? `<div class="border-t border-white/5 py-8 text-center text-[10px] text-slate-500 uppercase tracking-[0.2em]">${data.bottom_text}</div>` 
+            : '';
+        
+        footer.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+                ${columnsHTML}
+            </div>
+            ${bottomHTML}
+        `;
+    } catch(e) { console.log('Footer CMS load skipped:', e); }
 })();
 </script>
 </body></html>

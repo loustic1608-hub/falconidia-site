@@ -367,4 +367,77 @@
     } catch(e) { console.log('CMS load skipped:', e); }
 })();
 </script>
+
+
+<script>
+(async function() {
+    try {
+        const res = await fetch('/content/footer.json');
+        const data = await res.json();
+        
+        const footer = document.querySelector('footer');
+        if (!footer || !data) return;
+        
+        // Build footer HTML dynamically
+        let columnsHTML = '';
+        
+        // Logo + copyright column
+        columnsHTML += `
+        <div class="md:col-span-1">
+            <div class="text-xl font-black text-white mb-4">Falconid<span style="color:#00B4D8">IA</span></div>
+            <p class="text-slate-400 opacity-80 mb-6">${data.copyright || ''}</p>
+        </div>`;
+        
+        // Dynamic columns
+        if (data.columns) {
+            data.columns.forEach(col => {
+                let linksHTML = '';
+                if (col.links) {
+                    col.links.forEach(link => {
+                        linksHTML += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${link.url}">${link.label}</a></li>`;
+                    });
+                }
+                columnsHTML += `
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">${col.title}</h4>
+                    <ul class="space-y-4">${linksHTML}</ul>
+                </div>`;
+            });
+        }
+        
+        // Social column
+        if (data.social) {
+            const socials = [
+                { key: 'linkedin', label: 'LinkedIn' },
+                { key: 'instagram', label: 'Instagram' },
+                { key: 'facebook', label: 'Facebook' },
+                { key: 'youtube', label: 'YouTube' }
+            ];
+            let socialLinks = '';
+            socials.forEach(s => {
+                const url = data.social[s.key] || '#';
+                const target = url !== '#' ? ' target="_blank" rel="noopener noreferrer"' : '';
+                socialLinks += `<li><a class="text-slate-400 hover:text-[#4FC3F7] hover:translate-x-1 transition-all inline-block" href="${url}"${target}>${s.label}</a></li>`;
+            });
+            columnsHTML += `
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Suivez-nous</h4>
+                <ul class="space-y-4">${socialLinks}</ul>
+            </div>`;
+        }
+        
+        // Bottom text
+        const bottomHTML = data.bottom_text 
+            ? `<div class="border-t border-white/5 py-8 text-center text-[10px] text-slate-500 uppercase tracking-[0.2em]">${data.bottom_text}</div>` 
+            : '';
+        
+        footer.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+                ${columnsHTML}
+            </div>
+            ${bottomHTML}
+        `;
+    } catch(e) { console.log('Footer CMS load skipped:', e); }
+})();
+</script>
 </body></html>

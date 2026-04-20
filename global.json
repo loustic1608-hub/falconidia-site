@@ -1,0 +1,16 @@
+{
+  "hero_title": "Tout ce que vos commerciaux n'ont plus le temps de faire.",
+  "hero_subtitle": "Nous avons créé FalconidIA, un moteur d'intelligence commerciale qui s'occupe de tout.",
+  "services": [
+    {
+      "title": "La Veille Stratégique",
+      "description": "Ne laissez plus aucune opportunité vous échapper. Notre moteur surveille en temps réel les levées de fonds, les mouvements stratégiques et les nominations clés pour votre marché.",
+      "icon": "monitoring"
+    },
+    {
+      "title": "La Prise de Rendez-vous",
+      "description": "Automatisation intelligente et ultra-personnalisée de vos premiers contacts. Nous transformons les signaux faibles en opportunités concrètes dans vos agendas.",
+      "icon": "calendar_month"
+    }
+  ]
+}
